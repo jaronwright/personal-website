@@ -1,4 +1,12 @@
 :root {
+    --bg: #0E0E0D;
+    --text: #F0EFEA;
+    --muted: #8C8A82;
+    --rule: rgba(240, 239, 234, 0.10);
+    --focus: #F0EFEA;
+}
+
+html.light {
     --bg: #FAFAF7;
     --text: #111110;
     --muted: #6B695E;
@@ -6,13 +14,51 @@
     --focus: #111110;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #0E0E0D;
-        --text: #F0EFEA;
-        --muted: #8C8A82;
-        --rule: rgba(240, 239, 234, 0.10);
-        --focus: #F0EFEA;
+.theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 10;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 200ms ease, border-color 200ms ease,
+                background 200ms ease, transform 200ms ease;
+}
+
+.theme-toggle svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (hover: hover) {
+    .theme-toggle:hover {
+        color: var(--text);
+        border-color: var(--text);
+    }
+}
+
+.theme-toggle:active {
+    transform: scale(0.94);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+    .theme-toggle {
+        top: 1.75rem;
+        right: 1.75rem;
     }
 }
 

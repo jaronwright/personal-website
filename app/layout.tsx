@@ -1,6 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
+import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
+
+const themeInitScript = `(() => {
+  try {
+    const t = localStorage.getItem('theme');
+    if (t === 'light') document.documentElement.classList.add('light');
+  } catch (e) {}
+})();`;
 
 const geist = Geist({
   subsets: ["latin"],
@@ -36,8 +44,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geist.variable} ${instrumentSerif.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
+        <ThemeToggle />
         {children}
       </body>
     </html>
