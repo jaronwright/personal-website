@@ -486,6 +486,7 @@ nav {
 
 .exhibit-item {
     position: relative;
+    scroll-margin-top: 1.5rem;
 }
 
 .exhibit-item > summary {

@@ -21,7 +21,7 @@ const openHashScript = `(() => {
     const el = document.getElementById(location.hash.slice(1));
     if (el && el.tagName === 'DETAILS') {
       el.open = true;
-      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     }
   };
   openFromHash();
