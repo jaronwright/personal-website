@@ -9,6 +9,25 @@ export const metadata: Metadata = {
     "Madone SLR 7 AXS Gen 8. Frame, groupset, wheels, and the reasoning behind every component.",
 };
 
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const openHashScript = `(() => {
+  const openFromHash = () => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    }
+  };
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();`;
+
 export default function BikePage() {
   return (
     <main id="main" className="article bike-page">
@@ -89,7 +108,7 @@ export default function BikePage() {
           <ol className="exhibit-list">
             {components.map((c) => (
               <li key={c.position} className="exhibit-row">
-                <details className="exhibit-item">
+                <details id={slug(c.name)} className="exhibit-item">
                   <summary>
                     <span className="exhibit-number" aria-hidden="true">
                       {c.position}
@@ -149,6 +168,7 @@ export default function BikePage() {
           </ol>
         </section>
       </article>
+      <script dangerouslySetInnerHTML={{ __html: openHashScript }} />
     </main>
   );
 }

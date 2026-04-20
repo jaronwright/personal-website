@@ -35,17 +35,35 @@ export default function ArtPage() {
 
         <div className="prose">
           <p>
-            Wolf Wright Stories is a collection of art documenting the
-            adventures my girlfriend and I have been on. Jaron A Wright and
-            Diana Wolf, rendered as the leads of their own comic book.
+            Wolf Wright Stories is an ongoing series of comic book covers
+            starring me and my girlfriend Diana, both of us reimagined as the
+            leads of our own adventures. Every cover comes from something
+            Diana and I actually lived, just turned up a notch for the page.
+            Her last name is Wolf, mine is Wright; the title kind of wrote
+            itself.
           </p>
           <p>
-            Roy Lichtenstein is my favorite artist I&apos;ve ever seen. The
-            bold lines, the Ben Day dots, the way a pulpy comic panel can hold
-            real feeling. This is my small homage.
+            I found Roy Lichtenstein at the MoMA in New York, on the first
+            trip Diana and I ever took together, and he&apos;s been my
+            favorite artist ever since. We&apos;re modern and contemporary
+            people at heart, so any new city we land in, the local MoMA or MCA
+            is the first stop. Lichtenstein is one of the artists who stuck.
+            The bold lines. The Ben Day dots. The fact that he put comic
+            panels on gallery walls and made them belong there. He&apos;s neck
+            and neck with Keith Haring in our personal canon (you&apos;ll find
+            Haring over on my{" "}
+            <Link href="/bike#pedal-mafia-keith-haring">bike page</Link>).
           </p>
           <p>
-            More pieces are in progress. I&apos;ll put them up here soon.
+            The cover on this page came out of that first New York trip. I got
+            home, started messing around with AI, and asked it to put Diana
+            and me in Lichtenstein&apos;s world. This is what came back. I
+            liked it enough that Diana and I now have t-shirts with the cover
+            art printed on them.
+          </p>
+          <p>
+            More pieces are in the works. I&apos;ll post them here as they
+            come.
           </p>
         </div>
       </article>
