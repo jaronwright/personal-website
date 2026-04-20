@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { bike, components } from "@/data/bike";
+import { HashDetailsOpener } from "@/components/hash-details-opener";
 
 export const metadata: Metadata = {
   title: "My Tour De France Bike · Jaron A Wright",
@@ -14,19 +15,6 @@ const slug = (s: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-
-const openHashScript = `(() => {
-  const openFromHash = () => {
-    if (!location.hash) return;
-    const el = document.getElementById(location.hash.slice(1));
-    if (el && el.tagName === 'DETAILS') {
-      el.open = true;
-      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-    }
-  };
-  openFromHash();
-  window.addEventListener('hashchange', openFromHash);
-})();`;
 
 export default function BikePage() {
   return (
@@ -168,7 +156,7 @@ export default function BikePage() {
           </ol>
         </section>
       </article>
-      <script dangerouslySetInnerHTML={{ __html: openHashScript }} />
+      <HashDetailsOpener />
     </main>
   );
 }
