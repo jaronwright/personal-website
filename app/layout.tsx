@@ -6,7 +6,9 @@ import "./globals.css";
 const themeInitScript = `(() => {
   try {
     const t = localStorage.getItem('theme');
-    if (t === 'light') document.documentElement.classList.add('light');
+    const cl = document.documentElement.classList;
+    if (t === 'light') cl.add('light');
+    else if (t === 'retro') cl.add('retro');
   } catch (e) {}
 })();`;
 
@@ -43,12 +45,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geist.variable} ${instrumentSerif.variable}`}>
+    <html
+      lang="en"
+      className={`${geist.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            ★ Welcome to my homepage! ★ Best viewed in Netscape Navigator at 800×600 ★ Sign the guestbook! ★ You are visitor #00042 ★ Welcome to my homepage! ★ Best viewed in Netscape Navigator at 800×600 ★ Sign the guestbook! ★ You are visitor #00042 ★
+          </div>
+        </div>
         <ThemeToggle />
         {children}
       </body>
